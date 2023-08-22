@@ -1,0 +1,8 @@
+CRITICAL - 2023-08-15 09:36:15 --> Undefined variable $msg
+in APPPATH\Controllers\Admin.php on line 111.
+ 1 APPPATH\Controllers\Admin.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $msg', 'C:\\xampp\\htdocs\\cafe\\app\\Controllers\\Admin.php', 111)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->save_kategori()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\cafe\\public\\index.php')

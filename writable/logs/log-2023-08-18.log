@@ -1,0 +1,70 @@
+ERROR - 2023-08-18 12:43:48 --> mysqli_sql_exception: Can't create table `cafe`.`test_product` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\cafe-codeigniter\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\cafe-codeigniter\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\cafe-codeigniter\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\cafe-codeigniter\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\cafe-codeigniter\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\cafe-codeigniter\app\Database\Migrations\2023-08-18-121413_DataProduct.php(57): CodeIgniter\Database\Forge->createTable('test_product')
+#5 C:\xampp\htdocs\cafe-codeigniter\system\Database\MigrationRunner.php(877): App\Database\Migrations\DataProduct->up()
+#6 C:\xampp\htdocs\cafe-codeigniter\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\cafe-codeigniter\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\cafe-codeigniter\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\cafe-codeigniter\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\cafe-codeigniter\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-08-18 12:44:21 --> mysqli_sql_exception: Can't create table `cafe`.`test_product` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\cafe-codeigniter\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\cafe-codeigniter\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\cafe-codeigniter\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\cafe-codeigniter\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\cafe-codeigniter\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\cafe-codeigniter\app\Database\Migrations\2023-08-18-121413_DataProduct.php(57): CodeIgniter\Database\Forge->createTable('test_product')
+#5 C:\xampp\htdocs\cafe-codeigniter\system\Database\MigrationRunner.php(877): App\Database\Migrations\DataProduct->up()
+#6 C:\xampp\htdocs\cafe-codeigniter\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\cafe-codeigniter\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\cafe-codeigniter\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\cafe-codeigniter\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\cafe-codeigniter\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-08-18 12:47:55 --> mysqli_sql_exception: Can't create table `cafe`.`test_product` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\cafe-codeigniter\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\cafe-codeigniter\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\cafe-codeigniter\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\cafe-codeigniter\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\cafe-codeigniter\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\cafe-codeigniter\app\Database\Migrations\2023-08-18-121413_DataProduct.php(57): CodeIgniter\Database\Forge->createTable('test_product')
+#5 C:\xampp\htdocs\cafe-codeigniter\system\Database\MigrationRunner.php(877): App\Database\Migrations\DataProduct->up()
+#6 C:\xampp\htdocs\cafe-codeigniter\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\cafe-codeigniter\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\cafe-codeigniter\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\cafe-codeigniter\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\cafe-codeigniter\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-08-18 12:49:10 --> mysqli_sql_exception: Can't create table `cafe`.`test_product` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\cafe-codeigniter\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\cafe-codeigniter\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\cafe-codeigniter\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\cafe-codeigniter\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\cafe-codeigniter\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\cafe-codeigniter\app\Database\Migrations\2023-08-18-121413_DataProduct.php(57): CodeIgniter\Database\Forge->createTable('test_product')
+#5 C:\xampp\htdocs\cafe-codeigniter\system\Database\MigrationRunner.php(877): App\Database\Migrations\DataProduct->up()
+#6 C:\xampp\htdocs\cafe-codeigniter\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\cafe-codeigniter\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\cafe-codeigniter\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\cafe-codeigniter\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\cafe-codeigniter\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-08-18 12:58:38 --> mysqli_sql_exception: Invalid default value for 'created_at' in C:\xampp\htdocs\cafe-codeigniter\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\cafe-codeigniter\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\cafe-codeigniter\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\cafe-codeigniter\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\cafe-codeigniter\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\cafe-codeigniter\app\Database\Migrations\2023-08-18-121413_DataProduct.php(59): CodeIgniter\Database\Forge->createTable('test_product')
+#5 C:\xampp\htdocs\cafe-codeigniter\system\Database\MigrationRunner.php(877): App\Database\Migrations\DataProduct->up()
+#6 C:\xampp\htdocs\cafe-codeigniter\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\cafe-codeigniter\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\cafe-codeigniter\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\cafe-codeigniter\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\cafe-codeigniter\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}

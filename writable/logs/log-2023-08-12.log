@@ -1,0 +1,12 @@
+CRITICAL - 2023-08-12 12:26:16 --> Undefined global variable $_SESSION
+in APPPATH\Views\public\about.php on line 68.
+ 1 APPPATH\Views\public\about.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined global variable $_SESSION', 'C:\\xampp\\htdocs\\cafe\\app\\Views\\public\\about.php', 68)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\cafe\\app\\Views\\public\\about.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('public/about', [], true)
+ 5 APPPATH\Controllers\Home.php(13): view('public/about')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->about()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\cafe\\public\\index.php')

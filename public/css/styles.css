@@ -1,0 +1,324 @@
+body {
+  background-color: black;
+}
+
+.navbar-brand {
+  font-family: Viga;
+  font-size: 24px;
+  color: white !important;
+  font-weight: 700;
+}
+
+.nav-link {
+  text-transform: capitalize;
+}
+
+.carousel {
+  margin-bottom: 0px;
+}
+
+.carousel-item {
+  height: 240px;
+  align-items: center;
+}
+
+.carousel-item > img {
+  background-size: cover;
+  opacity: 0.5;
+  min-height: 240px;
+  min-width: 100%;
+}
+
+.carousel-inner > .carouselTitle {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.carouselTitle {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+}
+
+#myCarousel {
+  margin-top: 65px;
+}
+
+#rowAbout {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-top: 15px;
+}
+
+#rowVision {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#rowMission {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#titleAbout {
+  text-align: center;
+}
+
+#aboutDetail > a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+#titleVision,
+#titleMission {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+#titleProduct {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: white;
+  text-align: center;
+}
+
+#productCard {
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#productImage {
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+#productName {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 300;
+  color: black;
+  text-align: center;
+}
+
+#productPrice {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 500;
+  color: black;
+  text-align: center;
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
+}
+
+#allProduct {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+#allProduct > a {
+  color: white;
+  text-decoration: none;
+}
+
+.divider {
+  margin: 2rem 0;
+  color: white;
+}
+
+/* DESKTOP VERSION */
+@media (min-width: 992px) {
+  body {
+    background-color: black;
+  }
+
+  .row {
+    color: white;
+  }
+  .navbar-brand {
+    font-family: Viga;
+    font-size: 32px;
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+  }
+
+  .nav-link {
+    text-transform: uppercase;
+    margin-right: 30px;
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+  }
+
+  .nav-link:hover::after {
+    content: "";
+    display: block;
+    border-bottom: 3px solid white;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+    color: white !important;
+    text-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.7);
+  }
+
+  .carousel {
+    margin-bottom: 0px;
+  }
+
+  .carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+  }
+
+  .carousel-item {
+    height: 660px;
+  }
+
+  .carousel-item > img {
+    background-size: cover;
+    opacity: 0.5;
+    min-height: 660px;
+    min-width: 100%;
+  }
+
+  #rowAbout {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 15px;
+  }
+
+  #rowVision {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #rowMission {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #titleVision,
+  #titleMission {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  #titleAbout {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+  }
+
+  #rowProduct {
+    padding-bottom: 20px;
+  }
+
+  #titleProduct {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+  }
+
+  #productCard {
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px;
+  }
+
+  #productImage {
+    /* background: #000;
+    color: #000; */
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  #productName {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 300;
+    color: black;
+    text-align: center;
+  }
+
+  #productPrice {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 500;
+    color: black;
+    text-align: center;
+    margin-right: 0.75rem;
+    margin-left: 0.75rem;
+  }
+
+  #allProduct {
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  #allProduct > a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .divider {
+    margin: 2rem 0;
+    color: white;
+  }
+
+  .featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    /* rtl:remove */
+    letter-spacing: -0.05rem;
+  }
+
+  .containerAbout {
+    min-height: 575px;
+  }
+
+  .containerContact {
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 5px;
+  }
+
+  .formContact {
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 85%;
+  }
+
+  .contactList {
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 85%;
+  }
+
+  #rowLogin {
+    align-items: center;
+    justify-content: center;
+  }
+}

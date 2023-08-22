@@ -1,0 +1,105 @@
+CRITICAL - 2023-08-13 02:36:09 --> Undefined variable $a
+in APPPATH\Views\admin\akun.php on line 203.
+ 1 APPPATH\Views\admin\akun.php(203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $a', 'C:\\xampp\\htdocs\\cafe\\app\\Views\\admin\\akun.php', 203)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\cafe\\app\\Views\\admin\\akun.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/akun', [], true)
+ 5 APPPATH\Controllers\Admin.php(8): view('admin/akun')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->akun()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\cafe\\public\\index.php')
+ERROR - 2023-08-13 08:01:19 --> mysqli_sql_exception: Unknown column 'id_user' in 'where clause' in C:\xampp\htdocs\cafe\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\cafe\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `data_us...', 0)
+#1 C:\xampp\htdocs\cafe\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `data_us...')
+#2 C:\xampp\htdocs\cafe\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `data_us...')
+#3 C:\xampp\htdocs\cafe\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `data_us...', Array, false)
+#4 C:\xampp\htdocs\cafe\app\Models\AkunModel.php(26): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cafe\app\Controllers\Admin.php(52): App\Models\AkunModel->updateData(Array, '')
+#6 C:\xampp\htdocs\cafe\system\CodeIgniter.php(934): App\Controllers\Admin->update_akun()
+#7 C:\xampp\htdocs\cafe\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 C:\xampp\htdocs\cafe\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cafe\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\cafe\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2023-08-13 08:01:19 --> Unknown column 'id_user' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `data_user` SET `nama_lengkap` = \'Andryan\', `email` = \'andryancoolz@gmail.com\', `username` = \'andryan007\', `password` = \'12345\', `is_active` = \'active\'
+WHERE `id_user` = \'\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `data_user` SET `nama_lengkap` = \'Andryan\', `email` = \'andryancoolz@gmail.com\', `username` = \'andryan007\', `password` = \'12345\', `is_active` = \'active\'
+WHERE `id_user` = \'\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `data_user` SET `nama_lengkap` = \'Andryan\', `email` = \'andryancoolz@gmail.com\', `username` = \'andryan007\', `password` = \'12345\', `is_active` = \'active\'
+WHERE `id_user` = \'\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `data_user` SET `nama_lengkap` = :nama_lengkap:, `email` = :email:, `username` = :username:, `password` = :password:, `is_active` = :is_active:
+WHERE `id_user` = :id_user:', [...], false)
+ 5 APPPATH\Models\AkunModel.php(26): CodeIgniter\Database\BaseBuilder->update([...], [...])
+ 6 APPPATH\Controllers\Admin.php(52): App\Models\AkunModel->updateData([...], '')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->update_akun()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\cafe\\public\\index.php')
+CRITICAL - 2023-08-13 15:16:31 --> Call to undefined function form_open()
+in APPPATH\Views\admin\akun.php on line 436.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/akun', [], true)
+ 4 APPPATH\Controllers\Admin.php(21): view('admin/akun', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->akun()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\cafe\\public\\index.php')
+CRITICAL - 2023-08-13 15:43:47 --> Undefined variable $a
+in APPPATH\Views\admin\kategori.php on line 181.
+ 1 APPPATH\Views\admin\kategori.php(181): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $a', 'C:\\xampp\\htdocs\\cafe\\app\\Views\\admin\\kategori.php', 181)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\cafe\\app\\Views\\admin\\kategori.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/kategori', [], true)
+ 5 APPPATH\Controllers\Admin.php(65): view('admin/kategori', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->kategori()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\cafe\\public\\index.php')
+ERROR - 2023-08-13 13:42:00 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`data_product`.`picture_id`' at line 4 in C:\xampp\htdocs\cafe\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\cafe\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\cafe\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\cafe\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\cafe\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\cafe\app\Models\ProductModel.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\cafe\app\Controllers\Admin.php(137): App\Models\ProductModel->getData()
+#6 C:\xampp\htdocs\cafe\system\CodeIgniter.php(934): App\Controllers\Admin->produk()
+#7 C:\xampp\htdocs\cafe\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 C:\xampp\htdocs\cafe\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cafe\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\cafe\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2023-08-13 13:42:00 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`data_product`.`picture_id`' at line 4
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `data_product`
+JOIN `data_category` ON `data_category`.`category_id` = `data_product`.`category_id`
+JOIN `data_picture` ON `data_picture`.`picture_id``,` `data_product`.`picture_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `data_product`
+JOIN `data_category` ON `data_category`.`category_id` = `data_product`.`category_id`
+JOIN `data_picture` ON `data_picture`.`picture_id``,` `data_product`.`picture_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `data_product`
+JOIN `data_category` ON `data_category`.`category_id` = `data_product`.`category_id`
+JOIN `data_picture` ON `data_picture`.`picture_id``,` `data_product`.`picture_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `data_product`
+JOIN `data_category` ON `data_category`.`category_id` = `data_product`.`category_id`
+JOIN `data_picture` ON `data_picture`.`picture_id``,` `data_product`.`picture_id`', [], false)
+ 5 APPPATH\Models\ProductModel.php(14): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(137): App\Models\ProductModel->getData()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->produk()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\cafe\\public\\index.php')
