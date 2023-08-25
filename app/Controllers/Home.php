@@ -12,7 +12,7 @@ class Home extends BaseController
     protected $validation;
 
     public function __construct()
-    { 
+    {
         $this->modelProduk = new ProductModel();
         $this->modelKontak = new ContactModel();
         $this->validation = \Config\Services::validation();
@@ -21,33 +21,44 @@ class Home extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Daftar Produk',
+            'title' => 'Home',
             'products' => $this->modelProduk->getFewData()
         ];
 
         return view('public/index', $data);
     }
 
-    public function about(){
-        return view('public/about');
+    public function about()
+    {
+        $data = [
+            'title' => 'About'
+        ];
+
+        return view('public/about', $data);
     }
-    
+
     public function menu()
     {
         $data = [
-            'title' => 'Daftar Produk',
+            'title' => 'Produk',
             'products' => $this->modelProduk->getData()
         ];
 
         return view('public/menu', $data);
     }
 
-    public function contact(){
-        return view('public/contact');
+    public function contact()
+    {
+        $data = [
+            'title' => 'Contact'
+        ];
+
+        return view('public/contact', $data);
     }
 
-    public function send_message(){
-        if($this->request->isAJAX()){
+    public function send_message()
+    {
+        if ($this->request->isAJAX()) {
             $valid = $this->validate([
                 'nama' => [
                     'label' => 'Nama',
@@ -74,7 +85,7 @@ class Home extends BaseController
                 ],
             ]);
 
-            if(!$valid){
+            if (!$valid) {
                 $msg = [
                     'error' => [
                         'nama' => $this->validation->getError('nama'),
@@ -88,7 +99,7 @@ class Home extends BaseController
                     'contact_email' => $this->request->getPost('email'),
                     'contact_message' => $this->request->getPost('message')
                 );
-    
+
                 $this->modelKontak->saveData($data);
 
                 $msg = [

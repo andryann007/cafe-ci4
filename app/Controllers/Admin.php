@@ -18,7 +18,7 @@ class Admin extends BaseController
 
     public function __construct()
     {
-        $this->modelAkun = new AccountModel();  
+        $this->modelAkun = new AccountModel();
         $this->modelKategori = new CategoryModel();
         $this->modelProduk = new ProductModel();
         $this->modelKontak = new ContactModel();
@@ -26,22 +26,23 @@ class Admin extends BaseController
         $this->emailService = \Config\Services::email();
     }
 
-    public function index(){
-        $login = $this -> request -> getPost('btnLogin');
+    public function index()
+    {
+        $login = $this->request->getPost('btnLogin');
 
-        if($login){
-            $username = $this -> request -> getPost('username');
-            $password = $this -> request -> getPost('password');
+        if ($login) {
+            $username = $this->request->getPost('username');
+            $password = $this->request->getPost('password');
 
-            $dataAkun = $this->modelAkun -> where("username", $username) -> first();
+            $dataAkun = $this->modelAkun->where("username", $username)->first();
 
-            if(!$dataAkun) {
+            if (!$dataAkun) {
                 $err = "Username & Password Tidak Valid !!!";
-            } else if($password != $dataAkun['password']){
+            } else if ($password != $dataAkun['password']) {
                 $err = "Password Tidak Sesuai !!!";
             }
-            
-            if(empty($err)){
+
+            if (empty($err)) {
                 $dataSesi = [
                     'user_id' => $dataAkun['user_id'],
                     'username' => $dataAkun['username'],
@@ -50,43 +51,44 @@ class Admin extends BaseController
                     'password' => $dataAkun['password']
                 ];
 
-                session() -> set($dataSesi);
-                
+                session()->set($dataSesi);
+
                 session()->set('logged_in', true);
                 session()->setFlashdata('message', 'Berhasil Login Sebagai Admin !!!');
-                return redirect() -> to('admin/akun');
+                return redirect()->to('admin/akun');
             }
-            
-            if($err){
-                session() -> setFlashData('error', $err);
+
+            if ($err) {
+                session()->setFlashData('error', $err);
             }
         }
         return view('admin/login');
     }
 
-    public function forget_password(){
-        $sendToken = $this -> request -> getPost('btnSendToken');
+    public function forget_password()
+    {
+        $sendToken = $this->request->getPost('btnSendToken');
 
-        if($sendToken){
-            $email = $this -> request -> getPost('email');
-            $akunData = $this-> modelAkun -> where('email', $email)->first();
+        if ($sendToken) {
+            $email = $this->request->getPost('email');
+            $akunData = $this->modelAkun->where('email', $email)->first();
 
-            if($akunData){
-                if($email == $akunData['email']){
+            if ($akunData) {
+                if ($email == $akunData['email']) {
                     // Character That Been Use In Reset Token
                     $tokenCharacter = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                     $pieces  = [];
                     $max = mb_strlen($tokenCharacter, '8bit') - 1;
-                    
+
                     // Generate Random 12 Reset Token
-                    for($i = 0; $i < 12; ++$i){
+                    for ($i = 0; $i < 12; ++$i) {
                         $pieces[] = $tokenCharacter[random_int(0, $max)];
                     }
-    
+
                     $resetToken = implode('', $pieces);
-    
+
                     $recipientsName = $akunData['nama_lengkap'];
-    
+
                     // Send Reset Token To User Email
                     $this->emailService->setFrom("andryancoolz@gmail.com", "Andryan");
                     $this->emailService->setTo($email);
@@ -103,55 +105,54 @@ class Admin extends BaseController
                     $data = array(
                         'reset_token' => $resetToken
                     );
-                    $setNewResetToken = $this -> modelAkun -> updateData($data, $akunData['id_user']);
+                    $setNewResetToken = $this->modelAkun->updateData($data, $akunData['id_user']);
 
-                    if($sendResetToken && $setNewResetToken){
-                    session() -> setFlashdata('forget_password_message', 'Berhasil Mengirim Reset Token & Update Reset Token !!!');
+                    if ($sendResetToken && $setNewResetToken) {
+                        session()->setFlashdata('forget_password_message', 'Berhasil Mengirim Reset Token & Update Reset Token !!!');
+                    } else {
+                        session()->setFlashdata('forget_password_error', 'Gagal Mengirim Reset Token !!!');
                     }
-    
-                    else{
-                        session() -> setFlashdata('forget_password_error', 'Gagal Mengirim Reset Token !!!');
-                    }
-                } 
+                }
             } else {
-                session() -> setFlashdata('forget_password_error', 'Email Tidak Terdaftar !!!');
+                session()->setFlashdata('forget_password_error', 'Email Tidak Terdaftar !!!');
             }
         }
         return view('admin/forget_password');
     }
 
-    public function reset_password(){
-        $resetPassword = $this -> request -> getPost('btnResetPass');
+    public function reset_password()
+    {
+        $resetPassword = $this->request->getPost('btnResetPass');
 
-        if($resetPassword){
-            $email = $this -> request -> getPost('email');
-            $token = $this -> request -> getPost('token');
-            $password = $this -> request -> getPost('password');
-            $confirmPassword = $this -> request -> getPost('confirmPassword');
+        if ($resetPassword) {
+            $email = $this->request->getPost('email');
+            $token = $this->request->getPost('token');
+            $password = $this->request->getPost('password');
+            $confirmPassword = $this->request->getPost('confirmPassword');
 
-            $dataAkun = $this -> modelAkun -> where("email", $email) -> first();
+            $dataAkun = $this->modelAkun->where("email", $email)->first();
 
-            if($email != $dataAkun['email']) :
+            if ($email != $dataAkun['email']) :
                 $err = "Email Tidak Terdaftar !!!";
-                session() -> setFlashData('reset_password_error', $err);
+                session()->setFlashData('reset_password_error', $err);
             endif;
 
-            if($token != $dataAkun['reset_token'] || $token == "") :
+            if ($token != $dataAkun['reset_token'] || $token == "") :
                 $err = "Reset Token Tidak Sesuai !!!";
-                session() -> setFlashData('reset_password_error', $err);
+                session()->setFlashData('reset_password_error', $err);
             endif;
 
-            if(empty($err)){
-                if($email == $dataAkun['email'] && $token == $dataAkun['reset_token']){
-                    if($password == $confirmPassword){
+            if (empty($err)) {
+                if ($email == $dataAkun['email'] && $token == $dataAkun['reset_token']) {
+                    if ($password == $confirmPassword) {
                         $data = array(
                             'password' => $password,
                             'reset_token' => ""
                         );
-                        $this -> modelAkun -> updateData($data, $dataAkun['id_user']);
+                        $this->modelAkun->updateData($data, $dataAkun['id_user']);
 
                         $recipientsName = $dataAkun['nama_lengkap'];
-    
+
                         // Send Password Reset Message To User Email
                         $this->emailService->setFrom("andryancoolz@gmail.com", "Andryan");
                         $this->emailService->setTo($email);
@@ -162,7 +163,7 @@ class Admin extends BaseController
                         Andryan");
                         $this->emailService->send();
 
-                        session() -> setFlashdata('reset_password_message', 'Berhasil Mereset Password & Reset Token !!!');
+                        session()->setFlashdata('reset_password_message', 'Berhasil Mereset Password & Reset Token !!!');
                     } else {
                         session()->setFlashdata('reset_password_error', 'Password & Password Konfirmasi Tidak Sama !!!');
                     }
@@ -172,7 +173,8 @@ class Admin extends BaseController
         return view('admin/reset_password');
     }
 
-    public function update_profile(){
+    public function update_profile()
+    {
         $id = $this->request->getPost('idUser');
         $data = array(
             'nama_lengkap' => $this->request->getPost('namaUser'),
@@ -180,22 +182,22 @@ class Admin extends BaseController
             'username' => $this->request->getPost('username'),
             'password' => $this->request->getPost('passUser')
         );
-        
+
         $success = $this->modelAkun->updateProfile($id, $data);
 
-        if($success){
+        if ($success) {
             session()->regenerate(true);
-            
+
             $nama = $this->request->getPost('namaUser');
             $email = $this->request->getPost('emailUser');
             $username = $this->request->getPost('username');
             $password = $this->request->getPost('passUser');
-            
+
             session()->set('nama_lengkap', $nama);
             session()->set('email', $email);
             session()->set('username', $username);
             session()->set('password', $password);
-            
+
             session()->setFlashdata('message', 'Profil Berhasil di Update !!!');
         } else {
             session()->setFlashdata('error', 'Profil Gagal di Update !!!');
@@ -204,22 +206,24 @@ class Admin extends BaseController
         return redirect()->to('/admin/akun');
     }
 
-    public function akun(){
-        if(!session()->has("logged_in")){
+    public function akun()
+    {
+        if (!session()->has("logged_in")) {
             return redirect()->to('/admin');
         } else {
             $data = [
-                'title' => 'Daftar Akun',
+                'title' => 'Akun',
                 'accounts' => $this->modelAkun->getData()
             ];
             return view('admin/akun', $data);
         }
     }
 
-    public function save_akun(){
+    public function save_akun()
+    {
         $akun = $this->modelAkun;
 
-        if($this->request->isAJAX()){
+        if ($this->request->isAJAX()) {
             $valid = $this->validate([
                 'namaUser' => [
                     'label' => 'Nama Lengkap User',
@@ -267,7 +271,7 @@ class Admin extends BaseController
                 ],
             ]);
 
-            if(!$valid){
+            if (!$valid) {
                 $msg = [
                     'error' => [
                         'nama_lengkap' => $this->validation->getError('namaUser'),
@@ -285,7 +289,7 @@ class Admin extends BaseController
                     'password' => $this->request->getPost('passUser'),
                     'is_active' => $this->request->getPost('statusAkunUser')
                 );
-        
+
                 $akun->saveData($data);
 
                 $msg = [
@@ -296,11 +300,12 @@ class Admin extends BaseController
         }
     }
 
-    public function update_akun(){
+    public function update_akun()
+    {
         $akun = $this->modelAkun;
         $id = $this->request->getPost('idUser');
 
-        if($this->request->isAJAX()){
+        if ($this->request->isAJAX()) {
             $valid = $this->validate([
                 'editNamaUser' => [
                     'label' => 'Nama Lengkap User',
@@ -348,7 +353,7 @@ class Admin extends BaseController
                 ],
             ]);
 
-            if(!$valid){
+            if (!$valid) {
                 $msg = [
                     'error' => [
                         'nama_lengkap' => $this->validation->getError('editNamaUser'),
@@ -366,7 +371,7 @@ class Admin extends BaseController
                     'password' => $this->request->getPost('editPassUser'),
                     'is_active' => $this->request->getPost('editStatusAkunUser')
                 );
-                
+
                 $akun->updateData($data, $id);
 
                 $msg = [
@@ -377,22 +382,24 @@ class Admin extends BaseController
         }
     }
 
-    public function kategori(){
-        if(!session()->has("logged_in")){
+    public function kategori()
+    {
+        if (!session()->has("logged_in")) {
             return redirect()->to('/admin');
         } else {
             $data = [
-                'title' => 'Daftar Kategori',
+                'title' => 'Kategori',
                 'categories' => $this->modelKategori->getData()
             ];
             return view('admin/kategori', $data);
         }
     }
 
-    public function save_kategori(){
+    public function save_kategori()
+    {
         $kategori = $this->modelKategori;
 
-        if($this->request->isAJAX()){
+        if ($this->request->isAJAX()) {
             $valid = $this->validate([
                 'namaKategori' => [
                     'label' => 'Nama Kategori',
@@ -404,7 +411,7 @@ class Admin extends BaseController
                 ]
             ]);
 
-            if(!$valid){
+            if (!$valid) {
                 $msg = [
                     'error' => [
                         'category_name' => $this->validation->getError('namaKategori')
@@ -421,15 +428,16 @@ class Admin extends BaseController
                     'success' => 'Data Kategori Berhasil Tersimpan !!!'
                 ];
             }
-            echo json_encode($msg);  
+            echo json_encode($msg);
         }
     }
 
-    public function update_kategori(){
+    public function update_kategori()
+    {
         $kategori = $this->modelKategori;
         $id = $this->request->getPost('idKategori');
 
-        if($this->request->isAJAX()){
+        if ($this->request->isAJAX()) {
             $valid = $this->validate([
                 'editNamaKategori' => [
                     'label' => 'Nama Kategori',
@@ -452,17 +460,17 @@ class Admin extends BaseController
                 ]
             ]);
 
-            if(!$valid){
+            if (!$valid) {
                 $msg = [
                     'error' => [
                         'category_name' => $this->validation->getError('editNamaKategori')
                     ]
-                ];   
+                ];
             } else {
                 $data = array(
                     'category_name' => $this->request->getPost('editNamaKategori')
                 );
-                
+
                 $kategori->updateData($data, $id);
 
                 $msg = [
@@ -473,7 +481,8 @@ class Admin extends BaseController
         }
     }
 
-    public function delete_kategori(){
+    public function delete_kategori()
+    {
         $kategori = $this->modelKategori;
         $id = $this->request->getPost('deleteIdKategori');
 
@@ -482,12 +491,13 @@ class Admin extends BaseController
         return redirect()->to('/admin/kategori');
     }
 
-    public function produk(){
-        if(!session()->has("logged_in")){
+    public function produk()
+    {
+        if (!session()->has("logged_in")) {
             return redirect()->to('/admin');
         } else {
             $data = [
-                'title' => 'Daftar Kategori',
+                'title' => 'Produk',
                 'products' => $this->modelProduk->getData(),
                 'categories' => $this->modelKategori->getData()
             ];
@@ -495,10 +505,11 @@ class Admin extends BaseController
         }
     }
 
-    public function save_produk(){
+    public function save_produk()
+    {
         $produk = $this->modelProduk;
 
-        if($this->request->isAJAX()){
+        if ($this->request->isAJAX()) {
             $valid = $this->validate([
                 'namaProduk' => [
                     'label' => 'Nama Produk',
@@ -541,7 +552,7 @@ class Admin extends BaseController
                     ]
                 ]
             ]);
-            if(!$valid){
+            if (!$valid) {
                 $msg = [
                     'error' => [
                         'product_name' => $this->validation->getError('namaProduk'),
@@ -555,17 +566,17 @@ class Admin extends BaseController
                 $fileGambar = $this->request->getFile('gambarProduk');
                 $namaGambar = $fileGambar->getRandomName();
                 $fileGambar->move('img/uploads', $namaGambar);
-    
+
                 $data = array(
                     'category_id' => $this->request->getPost('kategoriProduk'),
                     'product_name' => $this->request->getPost('namaProduk'),
-                    'product_price' =>$this->request->getPost('hargaProduk'),
+                    'product_price' => $this->request->getPost('hargaProduk'),
                     'product_image' => $namaGambar,
                     'product_desc' => $this->request->getPost('descProduk')
                 );
-    
+
                 $produk->saveData($data);
-    
+
                 $msg = [
                     'success' => 'Data Produk Berhasil Tersimpan !!!'
                 ];
@@ -574,11 +585,12 @@ class Admin extends BaseController
         }
     }
 
-    public function update_produk(){
+    public function update_produk()
+    {
         $produk = $this->modelProduk;
         $id = $this->request->getPost('idProduk');
 
-        if($this->request->isAJAX()){
+        if ($this->request->isAJAX()) {
             $valid = $this->validate([
                 'editNamaProduk' => [
                     'label' => 'Nama Produk',
@@ -621,7 +633,7 @@ class Admin extends BaseController
                     ]
                 ]
             ]);
-            if(!$valid){
+            if (!$valid) {
                 $msg = [
                     'error' => [
                         'product_name' => $this->validation->getError('editNamaProduk'),
@@ -635,17 +647,17 @@ class Admin extends BaseController
                 $fileGambar = $this->request->getFile('editGambarProduk');
                 $namaGambar = $fileGambar->getRandomName();
                 $fileGambar->move('img/uploads', $namaGambar);
-    
+
                 $data = array(
                     'category_id' => $this->request->getPost('editKategoriProduk'),
                     'product_name' => $this->request->getPost('editNamaProduk'),
-                    'product_price' =>$this->request->getPost('editHargaProduk'),
+                    'product_price' => $this->request->getPost('editHargaProduk'),
                     'product_image' => $namaGambar,
                     'product_desc' => $this->request->getPost('editDescProduk')
                 );
-    
+
                 $produk->updateData($data, $id);
-    
+
                 $msg = [
                     'success' => 'Data Produk Berhasil Tersimpan !!!'
                 ];
@@ -654,20 +666,22 @@ class Admin extends BaseController
         }
     }
 
-    public function contact(){
-        if(!session()->has("logged_in")){
+    public function contact()
+    {
+        if (!session()->has("logged_in")) {
             return redirect()->to('/admin');
         } else {
             $data = [
-                'title' => 'Daftar Pesan Contact Us',
+                'title' => 'Contact',
                 'contacts' => $this->modelKontak->getData()
             ];
             return view('admin/contact', $data);
         }
     }
 
-    public function reply_message(){
-        if($this->request->isAJAX()){
+    public function reply_message()
+    {
+        if ($this->request->isAJAX()) {
             $valid = $this->validate([
                 'subjekEmail' => [
                     'label' => 'Subjek Email',
@@ -685,7 +699,7 @@ class Admin extends BaseController
                 ],
             ]);
 
-            if(!$valid){
+            if (!$valid) {
                 $msg = [
                     'error' => [
                         'email_subject' => $this->validation->getError('subjekEmail'),
@@ -694,9 +708,9 @@ class Admin extends BaseController
                 ];
             } else {
                 $sender = "andryancoolz@gmail.com";
-                $recipient = $this -> request -> getPost('emailPenerima');
-                $subject = $this -> request -> getPost('subjekEmail');
-                $message = $this -> request -> getPost('pesanEmail');
+                $recipient = $this->request->getPost('emailPenerima');
+                $subject = $this->request->getPost('subjekEmail');
+                $message = $this->request->getPost('pesanEmail');
 
                 $this->emailService->setFrom($sender, "Andryan");
                 $this->emailService->setTo($recipient);
@@ -705,7 +719,7 @@ class Admin extends BaseController
 
                 $success = $this->emailService->send();
 
-                if($success){
+                if ($success) {
                     $msg = [
                         'success' => 'Pesan Berhasil Terkirim !!!'
                     ];
@@ -719,16 +733,17 @@ class Admin extends BaseController
         }
     }
 
-    public function logout(){
-        $id = session() -> user_id;
+    public function logout()
+    {
+        $id = session()->user_id;
         date_default_timezone_set('Asia/Jakarta');
         $date = array('last_login' => date('Y-m-d H:i:s'));
 
-        $this-> modelAkun -> where('user_id', $id) -> updateData($date, $id);
+        $this->modelAkun->where('user_id', $id)->updateData($date, $id);
 
-        session() -> remove('logged_in');
-        session() -> destroy();
-        
-        return redirect() -> to('/admin');
+        session()->remove('logged_in');
+        session()->destroy();
+
+        return redirect()->to('/admin');
     }
 }
