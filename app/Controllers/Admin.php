@@ -90,7 +90,7 @@ class Admin extends BaseController
                     $recipientsName = $akunData['nama_lengkap'];
 
                     // Send Reset Token To User Email
-                    $this->emailService->setFrom("andryancoolz@gmail.com", "Andryan");
+                    $this->emailService->setFrom("andryanace@gmail.com", "Andryan");
                     $this->emailService->setTo($email);
                     $this->emailService->setSubject("Password Reset Token");
                     $this->emailService->setMessage("Hi, <b>{$recipientsName}</b> We're sending you this email because you requested a password reset.<br>
@@ -154,7 +154,7 @@ class Admin extends BaseController
                         $recipientsName = $dataAkun['nama_lengkap'];
 
                         // Send Password Reset Message To User Email
-                        $this->emailService->setFrom("andryancoolz@gmail.com", "Andryan");
+                        $this->emailService->setFrom("andryanace@gmail.com", "Andryan");
                         $this->emailService->setTo($email);
                         $this->emailService->setSubject("Reset Password Successful");
                         $this->emailService->setMessage("Hi, <b>{$recipientsName}</b> We're want to inform you that you're successfully reset your password.<br>
@@ -707,7 +707,7 @@ class Admin extends BaseController
                     ]
                 ];
             } else {
-                $sender = "andryancoolz@gmail.com";
+                $sender = "andryanace@gmail.com";
                 $recipient = $this->request->getPost('emailPenerima');
                 $subject = $this->request->getPost('subjekEmail');
                 $message = $this->request->getPost('pesanEmail');
