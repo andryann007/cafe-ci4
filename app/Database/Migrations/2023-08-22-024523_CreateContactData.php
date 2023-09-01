@@ -34,7 +34,7 @@ class CreateContactData extends Migration
 
             'updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
         ]);
-        $this->forge->addKey('contact_id', true);
+        $this->forge->addPrimaryKey('contact_id');
         $this->forge->createTable('data_contact');
     }
 

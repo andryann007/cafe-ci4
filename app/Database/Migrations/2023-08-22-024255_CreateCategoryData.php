@@ -25,7 +25,7 @@ class CreateCategoryData extends Migration
 
             'updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
         ]);
-        $this->forge->addKey('category_id', true);
+        $this->forge->addPrimaryKey('category_id');
         $this->forge->createTable('data_category');
     }
 

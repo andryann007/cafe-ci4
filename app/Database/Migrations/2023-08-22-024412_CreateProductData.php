@@ -46,7 +46,7 @@ class CreateProductData extends Migration
 
             'updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
         ]);
-        $this->forge->addKey('product_id', true);
+        $this->forge->addPrimaryKey('product_id');
         $this->forge->addForeignKey('category_id', 'data_category', 'category_id');
         $this->forge->createTable('data_product');
     }
